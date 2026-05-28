@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Professor Bruno Galvão | Criação de Sites & Sistemas Web</title>
+    <title>Professor Bruno Galvão | Criação de Sites &amp; Sistemas Web</title>
     <link rel="icon" type="image/png" href="img/logofv.png">
     <meta name="description" content="Desenvolvedor Full Stack Especialista em criação de sites, sistemas web, e-commerces de alta performance. Aulas de programação e tecnologia.">
     <meta name="keywords" content="desenvolvedor full stack, criação de sites, e-commerce, sistemas web, React, Node.js, PHP, professor de informática, Rio de Janeiro">
@@ -21,23 +21,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
-            --bg-deep: #09090b;
+            --bg-deep: #09090b; 
             --text-main: #ffffff;
             --text-sub: #a1a1aa;
-            --gradient-1: #ec4899;
-            --gradient-2: #8b5cf6;
-            --gradient-3: #3b82f6;
+            --gradient-1: #ec4899; 
+            --gradient-2: #8b5cf6; 
+            --gradient-3: #3b82f6; 
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.1);
             --whatsapp: #25D366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-deep); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
+        
+        /* CORREÇÃO DO TRANSBORDO HORIZONTAL AQUI */
+        html, body { 
+            width: 100%; 
+            max-width: 100vw; 
+            overflow-x: hidden; /* Corta tudo o que sair da tela */
+            background-color: var(--bg-deep); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            position: relative;
+        }
+
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
         /* Animações de Fundo (Blobs) */
-        .bg-blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5; animation: floatBlob 10s infinite alternate ease-in-out; }
+        .bg-blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5; animation: floatBlob 10s infinite alternate ease-in-out; pointer-events: none; }
         .blob-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: var(--gradient-1); }
         .blob-2 { bottom: 20%; right: -5%; width: 500px; height: 500px; background: var(--gradient-2); animation-delay: -5s; }
         .blob-3 { top: 40%; left: 30%; width: 300px; height: 300px; background: var(--gradient-3); animation-duration: 15s; }
@@ -58,8 +69,8 @@
         nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3)); transition: 0.3s; }
         nav a:hover::after { width: 100%; }
 
-        /* Seção Hero - Correção de altura e espaçamento para o cabeçalho fixo */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 60px 20px; position: relative; }
+        /* Seção Hero - Configuração Base */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 60px 20px; position: relative; width: 100%; }
         
         .badge { background: rgba(255, 255, 255, 0.1); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
         .badge i { color: #facc15; margin-right: 5px; }
@@ -85,7 +96,7 @@
         .tech-stack i:hover { color: var(--text-main); transform: scale(1.2) translateY(-10px); filter: drop-shadow(0 0 15px rgba(255,255,255,0.5)); }
 
         /* Botões Estilizados */
-        .btn-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; }
         .btn { padding: 16px 40px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
         .btn-primary { background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2)); color: white; border: none; box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3); }
         .btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5); }
@@ -96,7 +107,7 @@
         .btn-zap-small:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); }
 
         /* Estrutura de Seções */
-        section { padding: 120px 50px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
+        section { padding: 120px 50px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
         .section-title { text-align: center; font-size: 3rem; margin-bottom: 70px; font-weight: 800; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
@@ -118,7 +129,7 @@
         .card h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 700; }
         .card p { color: var(--text-sub); font-size: 1.1rem; line-height: 1.7; }
 
-        /* Cards de Portfólio (Com Alinhamento Corrigido) */
+        /* Cards de Portfólio */
         .portfolio-card { background: var(--card-bg); border-radius: 25px; border: 1px solid var(--card-border); overflow: hidden; transition: 0.4s ease; display: flex; flex-direction: column; backdrop-filter: blur(10px); height: 100%; }
         .portfolio-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--gradient-1); box-shadow: 0 15px 40px rgba(236, 72, 153, 0.15); }
         .portfolio-content { padding: 40px; display: flex; flex-direction: column; flex-grow: 1; }
@@ -131,24 +142,29 @@
         .portfolio-content p { color: var(--text-sub); font-size: 1.1rem; line-height: 1.7; flex-grow: 1; margin-bottom: 30px; }
         .portfolio-content .btn { margin-top: auto; }
         
-        /* Ajuste do Botão Flutuante do WhatsApp para Mobile */
+        /* Botão Flutuante do WhatsApp */
         .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: var(--whatsapp); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); }
 
-        footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.5); border-top: 1px solid var(--card-border); color: var(--text-sub); margin-top: 50px; backdrop-filter: blur(10px); }
+        footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.5); border-top: 1px solid var(--card-border); color: var(--text-sub); margin-top: 50px; backdrop-filter: blur(10px); width: 100%; }
 
-        /* --- AJUSTES PARA TELEMÓVEL --- */
+        /* --- AJUSTES DE RESPONSIVIDADE PARA TELEMÓVEL --- */
         @media (max-width: 768px) {
-            .hero { padding-top: 130px; } /* Garante que o topo não fica cortado */
-            .hero h1 { font-size: 2.8rem; } /* Tamanho otimizado para não estoirar o ecrã */
-            header { padding: 15px 20px; }
+            .hero { padding-top: 100px; padding-bottom: 40px; }
+            .hero h1 { font-size: 2.4rem; line-height: 1.2; word-wrap: break-word; } /* Fonte menor e trava quebra de linha */
+            .hero p { font-size: 1.1rem; padding: 0 10px; }
+            header { padding: 15px 20px; justify-content: center; width: 100vw; } 
             nav ul { display: none; }
             section { padding: 80px 20px; }
-            .tech-stack { font-size: 2rem; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
+            .section-title { font-size: 2.2rem; }
+            .tech-stack { font-size: 2.2rem; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px; }
             .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 28px; }
+            
+            .btn-container { flex-direction: column; width: 100%; gap: 15px; padding: 0 10px; }
+            .btn { width: 100%; justify-content: center; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -170,12 +186,12 @@
         </nav>
     </header>
 
-    <section id="home" class="hero gs-reveal">
+    <section id="home" class="hero">
         <div class="badge"><i class="fas fa-star"></i> Desenvolvedor Web e Professor</div>
         <h1>Criando <span class="text-gradient">Sites Incríveis</span><br>e Sistemas Robustos.</h1>
         <p>Sou o Professor Bruno Galvão. Construo soluções digitais completas (Front-End e Back-End) focadas em design, velocidade e vendas para impulsionar o seu negócio na internet.</p>
         
-        <div class="tech-stack gs-reveal">
+        <div class="tech-stack">
             <i class="fab fa-html5" title="HTML5"></i>
             <i class="fab fa-css3-alt" title="CSS3"></i>
             <i class="fab fa-js" title="JavaScript"></i>
@@ -184,7 +200,7 @@
             <i class="fab fa-php" title="PHP"></i>
         </div>
 
-        <div class="btn-container gs-reveal">
+        <div class="btn-container">
             <a href="https://wa.me/5521978308046?text=Olá Bruno! Quero fazer um orçamento para um site/sistema." target="_blank" class="btn btn-primary"><i class="fas fa-rocket"></i> Fazer um Orçamento</a>
             <a href="#portfolio" class="btn btn-outline">Ver Portfólio</a>
         </div>
@@ -278,7 +294,7 @@
         gsap.from(".tech-stack i", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: "back.out(1.7)", delay: 0.6 });
         gsap.from(".hero .btn-container", { scale: 0.9, opacity: 0, duration: 0.8, ease: "power4.out", delay: 0.8 });
 
-        // Animação no Scroll
+        // Animação controlada no Scroll
         gsap.utils.toArray('.gs-reveal').forEach(function(elem) {
             ScrollTrigger.create({
                 trigger: elem,
