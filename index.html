@@ -3,279 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-    <!-- ========================================== -->
-    <!-- INÍCIO DO SEO (Otimização para Buscadores) -->
-    <!-- ========================================== -->
-    <title>Professor Bruno Galvão | Dev Full Stack & Educador</title>
-    <link rel="shortcut icon" href="img/logofv.png" type="image/x-icon">
-    <meta name="description" content="Desenvolvedor Full Stack e Professor de Informática. Especialista em criação de sites, sistemas web, e-commerces e aulas particulares de programação e Pacote Office.">
-    <meta name="keywords" content="desenvolvedor full stack, programação, criação de sites, e-commerce, sistemas web, professor de informática, aulas particulares, pacote office, mentoria, tecnologia, Rio de Janeiro, Barra do Piraí">
-    <meta name="author" content="Bruno Galvão">
+    
+    <!-- SEO e Redes Sociais -->
+    <title>Professor Bruno Galvão | Criação de Sites & Sistemas Web</title>
+    <link rel="icon" type="image/png" href="img/logofv.png">
+    <meta name="description" content="Desenvolvedor Full Stack Especialista em criação de sites, sistemas web, e-commerces de alta performance. Aulas de programação e tecnologia.">
+    <meta name="keywords" content="desenvolvedor full stack, criação de sites, e-commerce, sistemas web, React, Node.js, PHP, professor de informática, Rio de Janeiro">
     <meta name="robots" content="index, follow"> 
     <link rel="canonical" href="https://brunogalvao.site/"> 
-    
 
-    <!-- Open Graph / Redes Sociais -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brunogalvao.site/"> 
-    <meta property="og:title" content="Professor Bruno Galvão | Dev Full Stack & Educador">
-    <meta property="og:description" content="Transformando ideias em sistemas eficientes e capacitando pessoas através de aulas particulares e mentoria em tecnologia.">
-    <!-- AQUI ESTÁ A SUA IMAGEM DE COMPARTILHAMENTO -->
+    <meta property="og:title" content="Professor Bruno Galvão | Criação de Sites e Sistemas">
+    <meta property="og:description" content="Transformando ideias em sites de alta performance e sistemas robustos.">
     <meta property="og:image" content="https://brunogalvao.site/img/logofv.png"> 
 
-    <!-- ========================================== -->
-    <!-- FIM DO SEO -->
-    <!-- ========================================== -->
-
-    <!-- GSAP para Animações -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
-            --bg-deep: #020617;
-            --bg-card: #0f172a;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --accent: #38bdf8; /* Cyan Neon */
-            --accent-glow: rgba(56, 189, 248, 0.3);
+            --bg-deep: #09090b; /* Quase preto puro */
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
+            --gradient-1: #ec4899; /* Rosa Neon */
+            --gradient-2: #8b5cf6; /* Roxo */
+            --gradient-3: #3b82f6; /* Azul Neon */
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.1);
             --whatsapp: #25D366;
-            --card-border: rgba(255, 255, 255, 0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--bg-deep); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* Scrollbar */
+        /* Animações de Fundo (Blobs) */
+        .bg-blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5; animation: floatBlob 10s infinite alternate ease-in-out; }
+        .blob-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: var(--gradient-1); }
+        .blob-2 { bottom: 20%; right: -5%; width: 500px; height: 500px; background: var(--gradient-2); animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 30%; width: 300px; height: 300px; background: var(--gradient-3); animation-duration: 15s; }
+
+        @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.2); } }
+
+        /* Scrollbar Colorida */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gradient-1), var(--gradient-3)); border-radius: 5px; }
 
-        /* Navbar */
-        header {
-            position: fixed; top: 0; width: 100%; padding: 20px 50px;
-            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(12px);
-            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-            border-bottom: 1px solid var(--card-border);
-        }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
+        /* Header e Navbar */
+        header { position: fixed; top: 0; width: 100%; padding: 20px 50px; background: rgba(9, 9, 11, 0.7); backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid var(--card-border); }
+        .logo { font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--gradient-1); }
         nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { font-weight: 500; }
-        nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+        nav a { font-weight: 500; font-size: 1.1rem; position: relative; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3)); transition: 0.3s; }
+        nav a:hover::after { width: 100%; }
 
-        /* Seção Hero */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 20px; background: radial-gradient(circle at center, #1e293b 0%, #020617 70%);
-        }
-        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-        .hero h1 span { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
-        .hero p { font-size: 1.3rem; color: var(--text-sub); max-width: 700px; margin-bottom: 40px; }
+        /* Seção Hero - Mais Chamativa */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; }
         
-        /* Botões */
-        .btn {
-            padding: 15px 35px; border-radius: 50px; font-weight: 600; font-size: 1.1rem;
-            display: inline-flex; align-items: center; gap: 10px; transition: 0.3s ease; cursor: pointer;
+        .badge { background: rgba(255, 255, 255, 0.1); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
+        .badge i { color: #facc15; margin-right: 5px; }
+
+        .hero h1 { font-size: 5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; letter-spacing: -2px; }
+        
+        /* Texto com Gradiente Animado */
+        .text-gradient { 
+            background: linear-gradient(to right, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-1));
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradientMove 5s linear infinite;
         }
-        .btn-primary { background-color: var(--accent); color: var(--bg-deep); }
-        .btn-primary:hover { box-shadow: 0 0 25px var(--accent); transform: translateY(-3px); }
-        .btn-outline { border: 2px solid var(--accent); color: var(--accent); padding: 10px 25px; font-size: 0.95rem; }
-        .btn-outline:hover { background: var(--accent); color: var(--bg-deep); box-shadow: 0 0 15px var(--accent-glow); }
-        .btn-zap-small { background-color: var(--whatsapp); color: white; padding: 10px 25px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; }
-        .btn-zap-small:hover { box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); transform: translateY(-2px); color: white; }
+        @keyframes gradientMove { 0% { background-position: 0% center; } 100% { background-position: 300% center; } }
+
+        .hero p { font-size: 1.3rem; color: var(--text-sub); max-width: 800px; margin-bottom: 40px; }
+        
+        /* Tecnologias Stack */
+        .tech-stack { display: flex; gap: 20px; font-size: 2.5rem; margin-bottom: 40px; color: var(--text-sub); }
+        .tech-stack i { transition: 0.3s; cursor: pointer; }
+        .tech-stack i:hover { color: var(--text-main); transform: scale(1.2) translateY(-10px); filter: drop-shadow(0 0 15px rgba(255,255,255,0.5)); }
+
+        /* Botões Estilizados */
+        .btn-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 16px 40px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-primary { background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2)); color: white; border: none; box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3); }
+        .btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5); }
+        .btn-outline { border: 2px solid var(--text-main); color: var(--text-main); background: transparent; }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-deep); }
+        
+        .btn-zap-small { background-color: var(--whatsapp); color: white; padding: 12px 25px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; transition: 0.3s; }
+        .btn-zap-small:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); }
 
         /* Estrutura de Seções */
-        section { padding: 100px 50px; max-width: 1300px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; color: var(--text-main); }
-        .section-title span { border-bottom: 3px solid var(--accent); padding-bottom: 5px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        section { padding: 120px 50px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
+        .section-title { text-align: center; font-size: 3rem; margin-bottom: 70px; font-weight: 800; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
-        /* Cards Gerais */
-        .card {
-            background: var(--bg-card); padding: 40px; border-radius: 20px;
-            border: 1px solid var(--card-border); transition: 0.4s ease;
-            position: relative; overflow: hidden; display: flex; flex-direction: column;
+        /* Cards Estilo Glassmorphism Colorido */
+        .card { 
+            background: var(--card-bg); backdrop-filter: blur(10px); padding: 50px 40px; 
+            border-radius: 25px; border: 1px solid var(--card-border); transition: 0.4s ease;
+            position: relative; overflow: hidden; text-align: left;
         }
-        .card:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .icon { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
-        .card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main); }
-        .card p { color: var(--text-sub); font-size: 1rem; flex-grow: 1; }
+        /* Efeito de brilho ao passar o mouse */
+        .card::before {
+            content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+        .card:hover::before { left: 100%; }
+        .card:hover { transform: translateY(-15px); border-color: var(--gradient-3); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(59, 130, 246, 0.2); }
+        
+        .icon-wrap { width: 70px; height: 70px; border-radius: 20px; background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)); display: flex; justify-content: center; align-items: center; font-size: 2rem; margin-bottom: 30px; color: white; box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3); }
+        .card h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 700; }
+        .card p { color: var(--text-sub); font-size: 1.1rem; line-height: 1.7; }
 
-        /* Cards de Portfólio */
-        .portfolio-card {
-            background: var(--bg-card); border-radius: 20px; border: 1px solid var(--card-border);
-            overflow: hidden; transition: 0.4s ease; display: flex; flex-direction: column;
-        }
-        .portfolio-card:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15); }
-        .portfolio-content { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
-        .portfolio-content h3 { font-size: 1.5rem; color: var(--text-main); margin-bottom: 10px; }
-        .portfolio-content p { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+        /* Cards de Portfólio (Com Alinhamento Corrigido) */
+        .portfolio-card { background: var(--card-bg); border-radius: 25px; border: 1px solid var(--card-border); overflow: hidden; transition: 0.4s ease; display: flex; flex-direction: column; backdrop-filter: blur(10px); height: 100%; }
+        .portfolio-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--gradient-1); box-shadow: 0 15px 40px rgba(236, 72, 153, 0.15); }
+        .portfolio-content { padding: 40px; display: flex; flex-direction: column; flex-grow: 1; }
+        
+        .portfolio-content h3 { font-size: 1.8rem; margin-bottom: 15px; min-height: 85px; }
+        
         .portfolio-tags { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .tag { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600; }
+        .tag { background: rgba(255,255,255,0.05); color: var(--text-main); padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); }
+        
+        .portfolio-content p { color: var(--text-sub); font-size: 1.1rem; line-height: 1.7; flex-grow: 1; margin-bottom: 30px; }
+        .portfolio-content .btn { margin-top: auto; }
+        
+        /* Ajuste do Botão Flutuante do WhatsApp para Mobile */
+        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background-color: var(--whatsapp); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); }
 
-        /* Seção Educação e Impacto */
-        .education-section {
-            background: linear-gradient(145deg, #0f172a 0%, #020617 100%);
-            border-radius: 25px;
-            padding: 60px;
-            border: 1px solid var(--card-border);
-            margin-top: 40px;
-        }
-        .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .edu-text h3 { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
-        .edu-text p { font-size: 1.1rem; color: var(--text-sub); margin-bottom: 20px; }
-        .edu-features { list-style: none; margin-top: 20px; margin-bottom: 30px; }
-        .edu-features li { font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
-        .edu-features i { color: var(--accent); font-size: 1.3rem; }
+        footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.5); border-top: 1px solid var(--card-border); color: var(--text-sub); margin-top: 50px; backdrop-filter: blur(10px); }
 
-        /* Floating WhatsApp */
-        .whatsapp-float {
-            position: fixed; bottom: 40px; right: 40px; background-color: var(--whatsapp);
-            color: white; width: 60px; height: 60px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; font-size: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); }
-
-        /* Footer */
-        footer { text-align: center; padding: 30px; background: #020617; border-top: 1px solid var(--card-border); color: var(--text-sub); }
-
-        @media (max-width: 900px) {
-            .edu-grid { grid-template-columns: 1fr; }
-        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 3.2rem; }
             header { padding: 20px; }
             nav ul { display: none; }
             section { padding: 80px 20px; }
-            .education-section { padding: 30px 20px; }
+            .tech-stack { font-size: 2rem; flex-wrap: wrap; justify-content: center; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 28px; }
         }
     </style>
-    <!-- Fontes e Ícones -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
+    <!-- Blobs Flutuantes no fundo -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
     <header>
-        <div class="logo">BRUNO GALVÃO</div>
+        <div class="logo"><i class="fas fa-code"></i> BRUNO GALVÃO</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#educacao">Educação</a></li>
+                <li><a href="#servicos">Especialidades</a></li>
+                <li><a href="#portfolio">Projetos</a></li>
+                <li><a href="#educacao">Mentoria</a></li>
                 <li><a href="https://wa.me/5521978308046" target="_blank">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero gs-reveal">
-        <h1>Professor<br><span>Bruno Galvão</span></h1>
-        <p>Desenvolvedor Full Stack e Educador. Transformando ideias em sistemas eficientes e capacitando pessoas através de aulas particulares e mentoria em tecnologia.</p>
-        <a href="#portfolio" class="btn btn-primary">Ver Meus Projetos <i class="fas fa-arrow-down"></i></a>
+        <div class="badge"><i class="fas fa-star"></i> Desenvolvedor Web e Professor</div>
+        <h1>Criando <span class="text-gradient">Sites Incríveis</span><br>e Sistemas Robustos.</h1>
+        <p>Sou o Professor Bruno Galvão. Construo soluções digitais completas (Front-End e Back-End) focadas em design, velocidade e vendas para impulsionar o seu negócio na internet.</p>
+        
+        <div class="tech-stack gs-reveal">
+            <i class="fab fa-html5" title="HTML5"></i>
+            <i class="fab fa-css3-alt" title="CSS3"></i>
+            <i class="fab fa-js" title="JavaScript"></i>
+            <i class="fab fa-react" title="React"></i>
+            <i class="fab fa-node-js" title="Node.js"></i>
+            <i class="fab fa-php" title="PHP"></i>
+        </div>
+
+        <div class="btn-container gs-reveal">
+            <a href="https://wa.me/5521978308046?text=Olá Bruno! Quero fazer um orçamento para um site/sistema." target="_blank" class="btn btn-primary"><i class="fas fa-rocket"></i> Fazer um Orçamento</a>
+            <a href="#portfolio" class="btn btn-outline">Ver Portfólio</a>
+        </div>
     </section>
 
     <section id="servicos" class="services">
-        <h2 class="section-title gs-reveal"><span>O que eu faço</span></h2>
+        <h2 class="section-title gs-reveal">Minhas <span class="text-gradient">Especialidades</span></h2>
         <div class="grid">
             <div class="card gs-reveal">
-                <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Criação de Sites</h3>
-                <p>Desenvolvimento de Landing Pages e sites institucionais otimizados, rápidos e focados na conversão do seu negócio.</p>
+                <div class="icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                <h3>Desenvolvimento de Sites</h3>
+                <p>Criação de Landing Pages de alta conversão, sites institucionais e páginas de vendas. Design totalmente responsivo, rápido e otimizado para o Google (SEO).</p>
             </div>
             <div class="card gs-reveal">
-                <div class="icon"><i class="fas fa-shopping-cart"></i></div>
-                <h3>E-commerces & Sistemas</h3>
-                <p>Plataformas robustas de vendas e sistemas sob medida gerando infraestrutura completa, desde o domínio até o servidor.</p>
+                <div class="icon-wrap" style="background: linear-gradient(135deg, var(--gradient-2), var(--gradient-3));"><i class="fas fa-database"></i></div>
+                <h3>Sistemas Web Customizados</h3>
+                <p>Desenvolvimento Full Stack utilizando PHP, Node.js e React. Criação de CRMs, painéis de gestão, integração de APIs e infraestrutura completa de servidores.</p>
             </div>
-            <div class="card gs-reveal" style="border-top: 3px solid var(--accent);">
-                <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                <h3>Aulas Particulares</h3>
-                <p>Acompanhamento 1 a 1 para você dominar a tecnologia. Aulas práticas de Informática Básica, Avançada, Pacote Office completo e Programação Web.</p>
-                <a href="https://wa.me/5521978308046?text=Olá Professor Bruno! Gostaria de saber mais sobre as aulas particulares." class="btn-zap-small" target="_blank"><i class="fab fa-whatsapp"></i> Agendar Aula</a>
+            <div class="card gs-reveal">
+                <div class="icon-wrap" style="background: linear-gradient(135deg, var(--gradient-3), var(--gradient-1));"><i class="fas fa-store"></i></div>
+                <h3>E-commerces (Lojas Virtuais)</h3>
+                <p>Plataformas de vendas seguras e escaláveis. Configuração de meios de pagamento, cálculo de frete e catálogos interativos para você vender 24h por dia.</p>
             </div>
         </div>
     </section>
 
     <section id="portfolio" class="portfolio">
-        <h2 class="section-title gs-reveal"><span>Projetos Recentes</span></h2>
+        <h2 class="section-title gs-reveal">Sites em <span class="text-gradient">Destaque</span></h2>
         <div class="grid">
             <div class="portfolio-card gs-reveal">
                 <div class="portfolio-content">
-                    <h3>Bruno Galvão Art</h3>
+                    <h3>Hortifruti Coisa Linda</h3>
                     <div class="portfolio-tags">
-                        <span class="tag">Portfólio</span>
-                        <span class="tag">Web Design</span>
+                        <span class="tag"><i class="fab fa-react"></i> Interface Web</span>
+                        <span class="tag"><i class="fas fa-mobile-alt"></i> UI/UX</span>
                     </div>
-                    <p>Espaço digital criativo focado em apresentar projetos de design, identidade visual e direção artística.</p>
-                    <a href="https://www.brunogalvao.art/" target="_blank" class="btn btn-outline">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    <p>Catálogo digital interativo desenvolvido com foco total na experiência do usuário para facilitar a visualização e gestão de pedidos locais.</p>
+                    <a href="https://hortifruticoisalinda.com/" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center;">Acessar Site <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-card gs-reveal">
                 <div class="portfolio-content">
                     <h3>Açaí da Preta</h3>
                     <div class="portfolio-tags">
-                        <span class="tag">E-commerce</span>
-                        <span class="tag">Full Stack</span>
+                        <span class="tag"><i class="fas fa-shopping-cart"></i> E-commerce</span>
+                        <span class="tag"><i class="fas fa-server"></i> Full Stack</span>
                     </div>
-                    <p>Plataforma de delivery e vendas estruturada do zero. Engloba toda a configuração de código, domínio e hospedagem.</p>
-                    <a href="https://www.acaidapreta.shop/" target="_blank" class="btn btn-outline">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    <p>Plataforma de delivery completa. Estruturada desde a configuração do domínio e hospedagem até a interface de vendas final.</p>
+                    <a href="https://www.acaidapreta.shop/" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center;">Acessar Site <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="portfolio-card gs-reveal">
                 <div class="portfolio-content">
-                    <h3>Hortifruti Coisa Linda</h3>
+                    <h3>Bruno Galvão Art</h3>
                     <div class="portfolio-tags">
-                        <span class="tag">Sistema Web</span>
-                        <span class="tag">UX/UI</span>
+                        <span class="tag"><i class="fas fa-paint-brush"></i> Portfólio</span>
+                        <span class="tag"><i class="fas fa-desktop"></i> Design</span>
                     </div>
-                    <p>Catálogo interativo desenvolvido para facilitar o acesso de clientes a produtos frescos e gerenciar pedidos locais.</p>
-                    <a href="https://hortifruticoisalinda.com/" target="_blank" class="btn btn-outline">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    <p>Site imersivo e criativo focado em expor identidades visuais, criação de logos e direção de arte publicitária.</p>
+                    <a href="https://www.brunogalvao.art/" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center;">Acessar Site <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="educacao">
-        <h2 class="section-title gs-reveal"><span>Educação & Impacto</span></h2>
-        <div class="education-section gs-reveal">
-            <div class="edu-grid">
-                <div class="edu-text">
-                    <h3>Capacitação que Transforma</h3>
-                    <p>A tecnologia só tem valor real quando é acessível. Além de atuar como desenvolvedor, dedico grande parte da minha trajetória à educação. Preparo profissionais para o mercado de trabalho através de mentorias de código e domínio completo do computador.</p>
-                    <ul class="edu-features">
-                        <li><i class="fas fa-chalkboard-teacher"></i> <strong>Aulas Particulares exclusivas</strong> de Informática e Pacote Office.</li>
-                        <li><i class="fas fa-bus"></i> Coordenação da escola itinerante "Mulheres Conectadas", promovendo inclusão digital.</li>
-                        <li><i class="fas fa-award"></i> Reconhecido com moção da câmara municipal pela atuação no ensino e projetos sociais.</li>
-                    </ul>
-                </div>
-                
-                <div class="edu-image" style="text-align: center;">
-                    <img src="img/imgdivul.jpeg" alt="Projeto Mulheres Conectadas" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                </div>
-
-            </div>
+        <h2 class="section-title gs-reveal">Além do Código: <span class="text-gradient">Educação</span></h2>
+        <div class="card gs-reveal" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 60px 40px;">
+            <div class="icon-wrap" style="margin: 0 auto 30px auto; background: var(--gradient-1);"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3 style="font-size: 2.2rem;">Professor e Mentor Tecnológico</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Quem sabe construir, sabe ensinar. Transfiro meu conhecimento prático através de aulas particulares de Informática, Pacote Office completo e Programação. Ajudo você a dominar a máquina.</p>
+            <a href="https://wa.me/5521978308046?text=Olá Professor! Gostaria de informações sobre as aulas." target="_blank" class="btn-zap-small" style="font-size: 1.1rem; padding: 15px 30px;"><i class="fab fa-whatsapp"></i> Agendar Aula Particular</a>
         </div>
     </section>
 
-    <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me/5521978308046" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer>
-        <p>&copy; 2026 Professor Bruno Galvão. Construído com paixão por tecnologia e educação.</p>
+        <p>&copy; 2026 Bruno Galvão. Código feito com dedicação. <i class="fas fa-code" style="color: var(--gradient-1);"></i></p>
     </footer>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap.from(".hero h1, .hero p, .hero .btn", {
-            y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: "power4.out", delay: 0.2
-        });
+        // Animação de entrada principal
+        gsap.from(".hero .badge", { y: -30, opacity: 0, duration: 1, ease: "power4.out" });
+        gsap.from(".hero h1", { y: 50, opacity: 0, duration: 1, ease: "power4.out", delay: 0.2 });
+        gsap.from(".hero p", { y: 30, opacity: 0, duration: 1, ease: "power4.out", delay: 0.4 });
+        gsap.from(".tech-stack i", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: "back.out(1.7)", delay: 0.6 });
+        gsap.from(".hero .btn-container", { scale: 0.9, opacity: 0, duration: 0.8, ease: "power4.out", delay: 0.8 });
 
+        // Animação no Scroll
         gsap.utils.toArray('.gs-reveal').forEach(function(elem) {
             ScrollTrigger.create({
                 trigger: elem,
@@ -283,11 +287,12 @@
                 onEnter: function() {
                     gsap.fromTo(elem, 
                         { y: 50, opacity: 0 }, 
-                        { y: 0, opacity: 1, duration: 0.8, ease: "back.out(1.5)" }
+                        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
                     );
                 },
                 once: true 
             });
         });
     </script>
-</bo
+</body>
+</html>
